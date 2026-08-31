@@ -1,0 +1,99 @@
+/* Element Selector */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+/* ID Selector */
+#top {
+    background-color: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 30px;
+}
+
+/* Element Selector */
+h1 {
+    font-size: 40px;
+}
+
+/* Class Selector */
+.tagline {
+    color: rgb(255, 193, 7);
+    font-size: 20px;
+}
+
+/* Class Selector */
+.about {
+    background-color: #ffffff;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px ;
+}
+
+/* ID Selector */
+#special-text {
+    color: rgb(46, 125, 50);
+    font-weight: bold;
+}
+
+/* Class Selector */
+.movies {
+    background-color: #ffecec;
+    margin: 20px;
+    padding: 20px;
+}
+
+/* Ordered List Styling */
+.movies ol {
+    list-style-type: upper-roman;
+}
+
+.movies li {
+    margin: 8px;
+    color: #c0392b;
+}
+
+/* Class Selector */
+.cities {
+    background-color: #eaf6ff;
+    margin: 20px;
+    padding: 20px;
+}
+
+/* Unordered List Styling */
+.cities ul {
+    list-style-type: square;
+}
+
+.cities li {
+    margin: 8px;
+    color: rgb(41, 98, 255);
+}
+
+/* Pseudo-class Selector */
+.movies li:hover {
+    color: #8e44ad;
+    cursor: pointer;
+}
+
+/* Pseudo-class Selector */
+.cities li:hover {
+    color: rgb(255, 87, 34);
+    cursor: pointer;
+}
+
+/* Pseudo-class Selector */
+.cities li:first-child {
+    font-weight: bold;
+}
+
+/* Footer */
+footer {
+    background-color: #222222;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}

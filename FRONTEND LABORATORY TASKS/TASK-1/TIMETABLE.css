@@ -1,0 +1,175 @@
+/* Page */
+body {
+    margin: 0;
+    padding: 30px;
+    font-family: Arial, sans-serif;
+    background-color: #eef7ff;
+    color: #172033;
+}
+
+/* Main Title */
+body > caption {
+    display: block;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+body > caption h1 {
+    color: #153e75;
+    font-size: 32px;
+    letter-spacing: 1px;
+}
+
+/* Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0 5px 20px #b8c7d9;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* All Table Cells */
+th,
+td {
+    border: 1px solid #b8c7d9;
+    padding: 10px;
+    text-align: center;
+}
+
+/* University Header */
+tr:first-child th {
+    background-color: #153e75;
+    color: white;
+    font-size: 22px;
+}
+
+tr:nth-child(2) th {
+    background-color: #1d5d9b;
+    color: white;
+    font-size: 18px;
+}
+
+tr:nth-child(3) th {
+    background-color: #247ba0;
+    color: white;
+    font-size: 17px;
+}
+
+/* Course Information */
+tr:nth-child(4) th {
+    background-color: #dff6ff;
+    color: #153e75;
+    font-size: 15px;
+}
+
+/* Class Information */
+tr:nth-child(5) th {
+    background-color: #e8f8f5;
+    color: #00695c;
+}
+
+/* Lecture Number Row */
+tr:nth-child(6) th {
+    background-color: #6a1b9a;
+    color: white;
+}
+
+/* Time Row */
+tr:nth-child(7) th {
+    background-color: #00897b;
+    color: white;
+}
+
+/* Day Names */
+tr:nth-child(n+8) th {
+    background-color: #dff6ff;
+    color: #153e75;
+    font-size: 15px;
+}
+
+/* Subject Cells */
+tr:nth-child(n+8) td {
+    background-color: #ffffff;
+    color: #263238;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+/* Alternate Rows */
+tr:nth-child(9) td,
+tr:nth-child(11) td,
+tr:nth-child(13) td {
+    background-color: #f4f9ff;
+}
+
+/* Hover on Subject Cells */
+td:hover {
+    background-color: #b2ebf2 !important;
+    color: #004d40;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Hover on Day Names */
+tr:nth-child(n+8) th:hover {
+    background-color: #90caf9;
+    color: #102a43;
+}
+
+/* Empty Cells */
+td:empty {
+    background-color: #f5f5f5;
+}
+
+/* Empty Cell Hover */
+td:empty:hover {
+    background-color: #eeeeee !important;
+}
+
+/* First Column */
+th:first-child {
+    font-weight: bold;
+}
+
+/* Lecture Number Hover */
+tr:nth-child(6) th:hover {
+    background-color: #8e24aa;
+}
+
+/* Time Hover */
+tr:nth-child(7) th:hover {
+    background-color: #00a896;
+}
+
+/* Table Row Hover */
+tr:nth-child(n+8):hover {
+    box-shadow: inset 0 0 0 2px #26a69a;
+}
+
+/* Important Subject Styling */
+td br {
+    line-height: 1.5;
+}
+
+/* Make Table Responsive */
+@media (max-width: 900px) {
+
+    body {
+        padding: 10px;
+    }
+
+    table {
+        font-size: 11px;
+    }
+
+    th,
+    td {
+        padding: 6px;
+    }
+
+    body > caption h1 {
+        font-size: 24px;
+    }
+}
