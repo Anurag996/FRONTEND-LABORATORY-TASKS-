@@ -1,0 +1,302 @@
+```css
+/* Basic Styling */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #080b0d;
+    color: white;
+}
+
+
+/* Header */
+
+header {
+    background-color: #050505;
+    color: white;
+    text-align: center;
+    padding: 30px;
+    border-bottom: 2px solid #00ffff;
+}
+
+header h1 {
+    margin-bottom: 10px;
+    color: #00ffff;
+}
+
+header p {
+    color: #cccccc;
+}
+
+
+/* Main Layout */
+
+.layout {
+    display: flex;
+    min-height: 600px;
+}
+
+
+/* Sidebar */
+
+.sidebar {
+    width: 230px;
+    background-color: #0d1114;
+    padding: 25px 15px;
+    border-right: 2px solid #00ffff;
+}
+
+.sidebar h2 {
+    color: #00ffff;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.sidebar a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 14px;
+    margin-bottom: 8px;
+    border-radius: 6px;
+}
+
+
+/* Sidebar Hover */
+
+.sidebar a:hover {
+    background-color: #00ffff;
+    color: black;
+}
+
+
+/* Main Content */
+
+.content {
+    flex: 1;
+    padding: 30px;
+}
+
+
+/* Sections */
+
+section {
+    background-color: #111719;
+    padding: 25px;
+    margin-bottom: 25px;
+    border-radius: 12px;
+    border: 1px solid #26383b;
+}
+
+section h2 {
+    color: #00ffff;
+}
+
+
+/* Welcome Box */
+
+.welcome-box {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #07191b;
+    border-left: 4px solid #00ffff;
+    border-radius: 8px;
+}
+
+.welcome-box h3 {
+    color: #00ffff;
+}
+
+
+/* Product Card */
+
+.product-card {
+    width: 320px;
+
+    /* Box Model */
+    margin: 25px auto;
+    padding: 20px;
+
+    border: 2px solid #00ffff;
+
+    background-color: #090d0f;
+    text-align: center;
+    border-radius: 12px;
+}
+
+
+/* Product Image */
+
+.product-card img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+
+/* Product Heading */
+
+.product-card h3 {
+    color: #00ffff;
+}
+
+
+/* Product Price */
+
+.price {
+    font-size: 24px;
+    font-weight: bold;
+    color: #00ffff;
+}
+
+
+/* Buttons */
+
+button {
+    padding: 11px 25px;
+    border: 2px solid #00ffff;
+    border-radius: 6px;
+
+    background-color: #00ffff;
+    color: black;
+
+    cursor: pointer;
+    font-weight: bold;
+}
+
+
+/* Button Hover */
+
+button:hover {
+    background-color: black;
+    color: #00ffff;
+}
+
+
+/* Blog Layout */
+
+.blog-container {
+    display: flex;
+    gap: 20px;
+}
+
+
+/* Blog Cards */
+
+.blog-card {
+    flex: 1;
+    padding: 20px;
+
+    border: 1px solid #315154;
+    background-color: #0b1012;
+
+    border-radius: 10px;
+}
+
+
+/* Blog Number */
+
+.blog-card span {
+    color: #00ffff;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
+/* Blog Heading */
+
+.blog-card h3 {
+    color: white;
+}
+
+
+/* Blog Hover */
+
+.blog-card:hover {
+    border-color: #00ffff;
+    transform: translateY(-5px);
+}
+
+
+/* Blog Link */
+
+.blog-card a {
+    color: #00ffff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.blog-card a:hover {
+    text-decoration: underline;
+}
+
+
+/* Footer */
+
+footer {
+    background-color: #050505;
+    color: #aaaaaa;
+    text-align: center;
+    padding: 20px;
+    border-top: 2px solid #00ffff;
+}
+
+
+/* Responsive Design */
+
+@media screen and (max-width: 700px) {
+
+    /* Sidebar upar aa jayega */
+
+    .layout {
+        flex-direction: column;
+    }
+
+
+    /* Sidebar full width */
+
+    .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 2px solid #00ffff;
+    }
+
+
+    /* Sidebar links */
+
+    .sidebar a {
+        text-align: center;
+    }
+
+
+    /* Content padding kam */
+
+    .content {
+        padding: 15px;
+    }
+
+
+    /* Product Card */
+
+    .product-card {
+        width: 100%;
+    }
+
+
+    /* Blog ek ke niche ek */
+
+    .blog-container {
+        flex-direction: column;
+    }
+
+}
+```
