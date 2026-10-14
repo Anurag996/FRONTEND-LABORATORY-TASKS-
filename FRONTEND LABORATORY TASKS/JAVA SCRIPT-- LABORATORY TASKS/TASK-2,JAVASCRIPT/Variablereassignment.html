@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variable Reassignment</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #eaf2f8;
+            text-align: center;
+            padding: 50px;
+        }
+
+        .container {
+            background-color: white;
+            padding: 25px;
+            max-width: 500px;
+            margin: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        h1 {
+            color: #1565c0;
+        }
+
+        p {
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Variable Reassignment</h1>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        // var variable
+        var a = 10;
+        var oldA = a;
+        a = 20;
+
+        // let variable
+        let b = 30;
+        let oldB = b;
+        b = 40;
+
+        // const variable
+        const c = 50;
+
+        // Result display karna
+        document.getElementById("result").innerHTML =
+            "var: Initial Value = " + oldA +
+            ", Updated Value = " + a + "<br><br>" +
+
+            "let: Initial Value = " + oldB +
+            ", Updated Value = " + b + "<br><br>" +
+
+            "const: Initial Value = " + c +
+            ", Value cannot be reassigned.";
+    </script>
+
+</body>
+</html>

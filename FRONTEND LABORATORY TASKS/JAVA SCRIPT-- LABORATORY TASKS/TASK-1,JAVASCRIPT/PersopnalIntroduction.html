@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Introduction</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #eaf2f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: white;
+            padding: 30px;
+            width: 350px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        h1 {
+            color: #1565c0;
+        }
+
+        p {
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Personal Introduction</h1>
+        <p id="intro"></p>
+    </div>
+
+    <script>
+        // Variables me apni details store ki hain
+        let name = "Anurag Prajapati";
+        let age = 19;
+        let course = "B.Tech Computer Science Engineering";
+        let section = "FA";
+
+        // Complete introduction banaya
+        let introduction = "Hello! My name is " + name +
+            ". I am " + age + " years old. I am pursuing " +
+            course + " and my section is " + section + ".";
+
+        // Introduction ko HTML page par display kiya
+        document.getElementById("intro").innerHTML = introduction;
+    </script>
+
+</body>
+</html>

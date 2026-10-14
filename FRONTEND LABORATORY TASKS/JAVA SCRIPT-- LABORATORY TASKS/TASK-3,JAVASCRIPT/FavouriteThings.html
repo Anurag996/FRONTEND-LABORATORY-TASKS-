@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favourite Things</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3e5f5;
+            text-align: center;
+            padding: 50px;
+        }
+
+        .container {
+            background-color: white;
+            width: 400px;
+            max-width: 90%;
+            margin: auto;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        h1 {
+            color: #7b1fa2;
+        }
+
+        p {
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>My Favourite Things</h1>
+
+        <p id="food"></p>
+        <p id="colour"></p>
+        <p id="movie"></p>
+    </div>
+
+    <script>
+        // Favourite things ko variables me store kiya
+        let food = "Pizza";
+        let colour = "Black";
+        let movie = "3 Idiots";
+
+        // Three sentences display kiye
+        document.getElementById("food").innerHTML =
+            "My favourite food is " + food + ".";
+
+        document.getElementById("colour").innerHTML =
+            "My favourite colour is " + colour + ".";
+
+        document.getElementById("movie").innerHTML =
+            "My favourite movie is " + movie + ".";
+    </script>
+
+</body>
+</html>
