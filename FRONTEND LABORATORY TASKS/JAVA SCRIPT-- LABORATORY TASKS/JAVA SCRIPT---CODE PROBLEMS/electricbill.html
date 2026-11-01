@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+let type = "domestic";
+let unit = 100;
+let bill = 0;
+
+switch (type) {
+
+    case "domestic":
+        bill = unit * 5;
+        break;
+
+    case "commercial":
+        bill = unit * 8;
+        break;
+
+    case "industrial":
+        bill = unit * 10;
+        break;
+
+    default:
+        console.log("Invalid connection type");
+}
+
+if (bill > 0) {
+    console.log("Total Bill = " + bill);
+}
+
+</script>
+</body>
+</html>
