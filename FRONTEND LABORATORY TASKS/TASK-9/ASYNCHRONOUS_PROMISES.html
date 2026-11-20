@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Server Data Fetching</title>
+
+    <style>
+        body {
+            font-family: Georgia, serif;
+            text-align: center;
+            background-color: #0a0a0a;
+            color: #d4af37;
+            padding: 40px;
+        }
+
+        .container {
+            background-color: #171717;
+            width: 400px;
+            margin: auto;
+            padding: 25px;
+            border-radius: 10px;
+            border: 1px solid #d4af37;
+        }
+
+        h2 {
+            color: #d4af37;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #d4af37;
+            color: black;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-family: Georgia, serif;
+            font-weight: bold;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #f5d76e;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h2>Server Data Fetching</h2>
+
+        <button onclick="fetchData()">Fetch Data</button>
+
+        <div id="result">Click the button to fetch data.</div>
+
+    </div>
+
+    <script>
+
+        // Function to simulate server data fetching
+        function fetchData() {
+
+            let result = document.getElementById("result");
+
+            result.innerHTML = "Loading data...";
+
+            // Creating a Promise
+            let promise = new Promise(function(resolve, reject) {
+
+                // Simulating server delay
+                setTimeout(function() {
+
+                    let serverData = {
+                        name: "ANURAG PRAJAPATI",
+                        course: "JAVA FULL STACK ",
+                        department: "COMPUTER SCIENCE"
+                    };
+
+                    // Sending successful response
+                    resolve(serverData);
+
+                }, 3000);
+
+            });
+
+            // Handling resolved Promise
+            promise.then(function(data) {
+
+                result.innerHTML = `
+                    <h3>Data Received Successfully!</h3>
+                    <p>Name: ${data.name}</p>
+                    <p>Course: ${data.course}</p>
+                    <p>Department: ${data.department}</p>
+                `;
+
+            });
+
+        }
+
+    </script>
+
+</body>
+</html>
