@@ -1,0 +1,96 @@
+<!-- You are given the following array of students:
+    const students = [
+    { name: "Rahul", marks: 85 },
+    { name: "Priya", marks: 32 },
+    { name: "Amit", marks: 67 },
+    { name: "Sneha", marks: 90 },
+    { name: "Kiran", marks: 28 }
+    ];
+Write a JavaScript program to:
+1. Create a function that accepts the student array.
+2. Use map() to add 5 grace marks to every student, without allowing marks to exceed 100.
+3. Use filter() to select students who scored at least 40 marks after adding grace marks.
+4. Use reduce() to calculate the average marks of the passing students.
+5. Use forEach() to display each passing student's name and final marks.
+6. Use an IIFE to display the final report. -->
+        
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Marks Management</title>
+</head>
+<body>
+
+    <h2>Student Marks Report</h2>
+
+    <script>
+        const students = [
+            { name: "Rahul", marks: 85 },
+            { name: "Priya", marks: 32 },
+            { name: "Amit", marks: 67 },
+            { name: "Sneha", marks: 90 },
+            { name: "Kiran", marks: 28 }
+        ];
+
+        // Function to process student marks
+        function processStudents(students) {
+
+            // 1. Add 5 grace marks, maximum 100
+            const updatedStudents = students.map(student => {
+                return {
+                    name: student.name,
+                    marks: Math.min(student.marks + 5, 100)
+                };
+            });
+
+            // 2. Select passing students
+            const passedStudents = updatedStudents.filter(
+                student => student.marks >= 40
+            );
+
+            // 3. Calculate average marks
+            const totalMarks = passedStudents.reduce(
+                (total, student) => total + student.marks,
+                0
+            );
+
+            const averageMarks = passedStudents.length > 0
+                ? totalMarks / passedStudents.length
+                : 0;
+
+            // 4. Display the passing students
+            console.log("Passing Students:");
+
+            passedStudents.forEach(student => {
+                console.log(
+                    student.name + " - " + student.marks
+                );
+            });
+
+            return {
+                passedStudents,
+                averageMarks
+            };
+        }
+
+        // 5. IIFE to display the final report
+        (function () {
+            const report = processStudents(students);
+
+            console.log("Final Report");
+            console.log(
+                "Average Marks:",
+                report.averageMarks.toFixed(2)
+            );
+            console.log(
+                "Total Passing Students:",
+                report.passedStudents.length
+            );
+        })();
+
+    </script>
+
+</body>
+</html>
