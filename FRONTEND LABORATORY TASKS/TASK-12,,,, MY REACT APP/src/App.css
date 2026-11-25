@@ -1,0 +1,72 @@
+
+/* Overall Page Styling */
+body {
+    font-family: 'Georgia', serif;
+    background: linear-gradient(135deg, #000000, #1a1a1a, #262016);
+    margin: 0;
+    padding: 40px;
+    color: #f5f5f5;
+}
+
+/* Main Container */
+#root {
+    max-width: 750px;
+    margin: auto;
+}
+
+/* Main Heading */
+h1 {
+    background: linear-gradient(135deg, #b8860b, #ffd700, #b8860b);
+    color: #000000;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    letter-spacing: 2px;
+    font-family: 'Georgia', serif;
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.2);
+}
+
+/* Section Styling */
+#root > div {
+    background-color: #151515;
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid #8a6d1d;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Sub Headings */
+h2 {
+    color: #ffd700;
+    border-bottom: 2px solid #8a6d1d;
+    padding-bottom: 8px;
+    letter-spacing: 1px;
+}
+
+/* Paragraph Styling */
+p {
+    font-size: 17px;
+    color: #e5e5e5;
+    padding: 5px;
+    margin: 8px 0;
+    line-height: 1.6;
+}
+
+/* Footer */
+h3 {
+    text-align: center;
+    color: #ffd700;
+    background-color: #252015;
+    padding: 15px;
+    border: 1px solid #8a6d1d;
+    border-radius: 8px;
+    letter-spacing: 1px;
+}
+
+/* Horizontal Line */
+hr {
+    border: none;
+    border-top: 1px solid #b8860b;
+    margin: 25px 0;
+}
