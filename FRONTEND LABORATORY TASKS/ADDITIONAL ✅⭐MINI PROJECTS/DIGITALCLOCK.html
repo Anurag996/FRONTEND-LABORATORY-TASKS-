@@ -1,0 +1,168 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- Basic Metadata -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Responsive Design -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Metadata -->
+    <meta name="description" content="A beautiful digital clock built using HTML, CSS and JavaScript.">
+    <meta name="keywords" content="Digital Clock, HTML, CSS, JavaScript, Live Clock">
+    <meta name="author" content="Anurag Prajapati">
+
+    <!-- Page Title -->
+    <title>Digital Clock | Anurag</title>
+
+    <!-- CSS Styling -->
+    <style>
+
+        /* Overall Page Styling */
+        body {
+            background: linear-gradient(135deg, #000000, #1a0010);
+            font-family: Arial, sans-serif;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Main Clock Container */
+        .clock-container {
+            background: #151515;
+            padding: 40px;
+            width: 380px;
+            text-align: center;
+            border-radius: 20px;
+            border: 1px solid #ff1493;
+            box-shadow: 0 0 25px rgba(255, 20, 147, 0.4);
+        }
+
+        /* Main Heading */
+        h1 {
+            color: #ff69b4;
+            font-size: 30px;
+            letter-spacing: 2px;
+        }
+
+        /* Time Display */
+        #clock {
+            color: #ff1493;
+            font-size: 55px;
+            font-weight: bold;
+            margin: 25px 0;
+            text-shadow: 0 0 15px #ff1493;
+        }
+
+        /* Date Display */
+        #date {
+            color: #ffffff;
+            font-size: 18px;
+            margin-top: 15px;
+        }
+
+        /* Footer */
+        footer {
+            color: #ff69b4;
+            margin-top: 30px;
+            font-size: 14px;
+        }
+
+        /* Small Label */
+        .label {
+            color: #aaaaaa;
+            font-size: 13px;
+            letter-spacing: 3px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Main Container -->
+    <div class="clock-container">
+
+        <!-- Heading -->
+        <h1>Digital Clock</h1>
+
+        <p class="label">CURRENT TIME</p>
+
+        <!-- Time Display -->
+        <h2 id="clock">00:00:00 AM</h2>
+
+        <!-- Date Display -->
+        <p id="date">Loading Date...</p>
+
+        <!-- Footer -->
+        <footer>
+            Created by Anurag Prajapati
+        </footer>
+
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+
+        // Function to update clock
+        function updateClock() {
+
+            // Get current date and time
+            let now = new Date();
+
+            // Get hours, minutes and seconds
+            let hours = now.getHours();
+            let minutes = now.getMinutes();
+            let seconds = now.getSeconds();
+
+            // AM and PM
+            let period = hours >= 12 ? "PM" : "AM";
+
+            // Convert 24-hour format to 12-hour format
+            hours = hours % 12;
+
+            if (hours === 0) {
+                hours = 12;
+            }
+
+            // Add zero before single digit values
+            hours = String(hours).padStart(2, '0');
+            minutes = String(minutes).padStart(2, '0');
+            seconds = String(seconds).padStart(2, '0');
+
+            // Display time
+            document.getElementById("clock").innerText =
+                hours + ":" + minutes + ":" + seconds + " " + period;
+
+            // Get current date
+            let options = {
+                weekday: 'long',
+                day: 'numeric',
+                month: 'long',
+                year: 'numeric'
+            };
+
+            let currentDate = now.toLocaleDateString('en-IN', options);
+
+            // Display date
+            document.getElementById("date").innerText = currentDate;
+
+        }
+
+        // Update clock every second
+        updateClock();
+
+        setInterval(updateClock, 1000);
+
+    </script>
+
+</body>
+
+</html>
