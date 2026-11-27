@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="author" content="Anurag Prajapati">
+<title>Rock Paper Scissors | Anurag</title>
+
+<style>
+    /* Saare colors yahin se control honge (theme change karna ho to bas yahan badlo) */
+    :root {
+        --bg: #000000;
+        --bg2: #1a0010;
+        --card: #151515;
+        --pink: #ff1493;
+        --pink-light: #ff69b4;
+        --text: #ffffff;
+        --muted: #aaaaaa;
+        --win: #4ade80;
+        --lose: #ff6b6b;
+        color-scheme: dark;
+        box-sizing: border-box;
+        padding-top: env(safe-area-inset-top, 0px);
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+    }
+    html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+    * { box-sizing: border-box; }
+
+    /* Poore page ka background (black se dark pink gradient) */
+    body {
+        margin: 0;
+        min-height: 100vh;
+        background: linear-gradient(135deg, var(--bg), var(--bg2));
+        color: var(--text);
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px 14px;
+    }
+
+    /* Main card: pink border + glow */
+    .game {
+        background: var(--card);
+        width: 100%;
+        max-width: 420px;
+        padding: 30px 24px;
+        text-align: center;
+        border-radius: 20px;
+        border: 1px solid var(--pink);
+        box-shadow: 0 0 25px rgba(255, 20, 147, 0.4);
+    }
+
+    h1 { color: var(--pink-light); margin: 0; letter-spacing: 2px; font-size: 26px; }
+    .sub { color: var(--muted); font-size: 12px; letter-spacing: 3px; margin: 6px 0 22px; }
+
+    /* Scoreboard: 3 boxes ek row me */
+    .score { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 22px; }
+    .score div { background: var(--bg); border: 1px solid var(--pink); border-radius: 12px; padding: 10px 4px; }
+    .score span { display: block; font-size: 11px; color: var(--muted); letter-spacing: 1px; }
+    .score b { font-size: 26px; color: var(--pink); text-shadow: 0 0 10px var(--pink); }
+
+    /* Versus area: tera choice VS computer ka choice */
+    .arena { display: flex; justify-content: space-around; align-items: center; margin: 10px 0 14px; }
+    .arena .pick { font-size: 56px; }
+    .arena small { display: block; font-size: 11px; color: var(--muted); letter-spacing: 2px; margin-top: 4px; }
+    .vs { color: var(--pink-light); font-weight: bold; font-size: 18px; }
+
+    /* Result message */
+    #message { min-height: 30px; font-size: 20px; font-weight: bold; margin-bottom: 18px; }
+    .win { color: var(--win); }
+    .lose { color: var(--lose); }
+    .draw { color: var(--pink-light); }
+
+    /* 3 choice buttons */
+    .choices { display: flex; justify-content: center; gap: 12px; }
+    .choices button {
+        font-size: 36px;
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        border: 2px solid var(--pink);
+        background: var(--bg);
+        cursor: pointer;
+        transition: 0.2s;
+    }
+    /* Hover par button bada hoke glow karega */
+    .choices button:hover { background: var(--pink); transform: scale(1.12); box-shadow: 0 0 18px var(--pink); }
+
+    /* Reset button */
+    .reset {
+        margin-top: 22px;
+        padding: 10px 22px;
+        background: none;
+        color: var(--pink-light);
+        border: 1px solid var(--pink-light);
+        border-radius: 20px;
+        cursor: pointer;
+    }
+    .reset:hover { background: var(--pink-light); color: #000; }
+
+    /* Footer */
+    footer { color: var(--pink-light); font-size: 13px; margin-top: 22px; }
+
+    /* Result aate hi emoji halka sa pop karega */
+    .pop { animation: pop 0.3s; }
+    @keyframes pop { 0% { transform: scale(0.5); } 100% { transform: scale(1); } }
+</style>
+</head>
+
+<body>
+
+<div class="game">
+    <h1>✊ ✋ ✌️</h1>
+    <h1>Rock Paper Scissors</h1>
+    <p class="sub">PLAY AGAINST COMPUTER</p>
+
+    <!-- Scoreboard -->
+    <div class="score">
+        <div><span>YOU</span><b id="youScore">0</b></div>
+        <div><span>DRAW</span><b id="drawScore">0</b></div>
+        <div><span>COMPUTER</span><b id="compScore">0</b></div>
+    </div>
+
+    <!-- Dono ke choices yahan dikhenge -->
+    <div class="arena">
+        <div><div class="pick" id="youPick">❔</div><small>YOU</small></div>
+        <div class="vs">VS</div>
+        <div><div class="pick" id="compPick">❔</div><small>COMPUTER</small></div>
+    </div>
+
+    <!-- Win / Lose / Draw message -->
+    <div id="message">Choose your move!</div>
+
+    <!-- Buttons: click par play() function chalega -->
+    <div class="choices">
+        <button onclick="play('rock')">✊</button>
+        <button onclick="play('paper')">✋</button>
+        <button onclick="play('scissors')">✌️</button>
+    </div>
+
+    <button class="reset" onclick="resetGame()">Reset Score</button>
+
+    <footer>Created by Anurag Prajapati 💗</footer>
+</div>
+
+<script>
+    // Teeno options ek array me
+    const choices = ["rock", "paper", "scissors"];
+
+    // Har option ka emoji
+    const emoji = { rock: "✊", paper: "✋", scissors: "✌️" };
+
+    // Score yaad rakhne ke liye variables
+    let you = 0;
+    let comp = 0;
+    let draw = 0;
+
+    // Ye function tab chalta hai jab user koi button dabata hai
+    function play(userChoice) {
+
+        // Computer ka random choice (0, 1 ya 2 number se array ka item)
+        let randomNumber = Math.floor(Math.random() * 3);
+        let compChoice = choices[randomNumber];
+
+        let result = "";
+
+        // Agar dono same hain to draw
+        if (userChoice === compChoice) {
+            result = "draw";
+            draw++;
+        }
+        // Jeetne ke 3 rules: rock>scissors, paper>rock, scissors>paper
+        else if (
+            (userChoice === "rock" && compChoice === "scissors") ||
+            (userChoice === "paper" && compChoice === "rock") ||
+            (userChoice === "scissors" && compChoice === "paper")
+        ) {
+            result = "win";
+            you++;
+        }
+        // Baaki sab case me user haar gaya
+        else {
+            result = "lose";
+            comp++;
+        }
+
+        showResult(userChoice, compChoice, result);
+    }
+
+    // Screen par result dikhane wala function
+    function showResult(userChoice, compChoice, result) {
+
+        // Emojis update karo
+        let youPick = document.getElementById("youPick");
+        let compPick = document.getElementById("compPick");
+        youPick.innerText = emoji[userChoice];
+        compPick.innerText = emoji[compChoice];
+
+        // Pop animation dobara chalane ke liye class hata ke lagao
+        youPick.classList.remove("pop");
+        compPick.classList.remove("pop");
+        void youPick.offsetWidth;
+        youPick.classList.add("pop");
+        compPick.classList.add("pop");
+
+        // Message aur uska color
+        let message = document.getElementById("message");
+        if (result === "win") message.innerText = "You Win! 🎉";
+        if (result === "lose") message.innerText = "You Lose 😢";
+        if (result === "draw") message.innerText = "It is a Draw 🤝";
+        message.className = result;
+
+        // Scoreboard update
+        document.getElementById("youScore").innerText = you;
+        document.getElementById("drawScore").innerText = draw;
+        document.getElementById("compScore").innerText = comp;
+    }
+
+    // Reset: sab kuch wapas shuru
+    function resetGame() {
+        you = 0;
+        comp = 0;
+        draw = 0;
+        document.getElementById("youScore").innerText = 0;
+        document.getElementById("drawScore").innerText = 0;
+        document.getElementById("compScore").innerText = 0;
+        document.getElementById("youPick").innerText = "❔";
+        document.getElementById("compPick").innerText = "❔";
+        document.getElementById("message").innerText = "Choose your move!";
+        document.getElementById("message").className = "";
+    }
+</script>
+
+</body>
+</html>
