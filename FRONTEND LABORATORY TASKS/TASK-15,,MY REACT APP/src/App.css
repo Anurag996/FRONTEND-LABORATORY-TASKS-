@@ -1,0 +1,152 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #080808;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Navbar */
+
+.navbar {
+    width: 100%;
+    padding: 22px 8%;
+    background: #151515;
+    border-bottom: 1px solid #333;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 25px;
+}
+
+.logo span {
+    color: #ff1493;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #ff1493;
+}
+
+.nav-links a.active {
+    color: #ff1493;
+    border-bottom: 2px solid #ff1493;
+    padding-bottom: 5px;
+}
+
+/* Pages */
+
+.page {
+    flex: 1;
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.page h1 {
+    font-size: 45px;
+    margin-bottom: 20px;
+}
+
+.page h1 span {
+    color: #ff1493;
+}
+
+.page p {
+    color: #aaa;
+    font-size: 17px;
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+.page h2 {
+    color: #ff69b4;
+    margin-top: 20px;
+}
+
+/* Blog Cards */
+
+.blog-card {
+    max-width: 450px;
+    margin: 20px auto;
+    padding: 25px;
+    background: #181818;
+    border: 1px solid #333;
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+.blog-card:hover {
+    border-color: #ff1493;
+    transform: translateY(-5px);
+}
+
+.blog-card h2 {
+    margin: 0 0 12px;
+}
+
+.blog-card p {
+    margin-bottom: 0;
+}
+
+/* Footer */
+
+footer {
+    text-align: center;
+    padding: 22px;
+    color: #888;
+    background: #151515;
+    border-top: 1px solid #333;
+}
+
+footer span {
+    color: #ff1493;
+}
+
+/* Responsive */
+
+@media (max-width: 600px) {
+
+    .navbar {
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .nav-links {
+        gap: 20px;
+    }
+
+    .page {
+        padding: 70px 15px;
+    }
+
+    .page h1 {
+        font-size: 32px;
+    }
+}
